@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form {
+        border: 1px solid black;
+        margin: 10px;
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <form action="">
+        <h2>LogIn form </h2>
+        <label for="username">Username</label>
+        <input type="text" name="" id="username" maxlength="10"><br><br>
+        <label for="password">Password :</label>
+        <input type="text" name="" id="password"><br><br>
+
+        <button type="button" onclick="Validation()">Check</button>
+        <h4 id="result"></h4>
+        <h4 id="result1"></h4>
+    </form>
+    <script>
+        function Validation() {
+            const username = document.getElementById('username').value;
+            const pattern = /^[a-zA-Z0-9_-]{5,10}$/;
+            if (pattern.test(username)) {
+                // document.getElementById('result').textContent = 'valid Username'
+                //document.getElementById('result').style.color = 'green'
+            } else {
+                document.getElementById('result').textContent = 'Invalid Username'
+                document.getElementById('result').style.color = 'red'
+
+            }
+            const password = document.getElementById('password').value;
+            const pattern1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{6,64}$/;
+            if (pattern1.test(password)) {
+                //document.getElementById('result1').textContent = 'Valid Password'
+                // document.getElementById('result1').style.color = 'green'
+            } else {
+                document.getElementById('result1').textContent = 'Please Enter a Valid Password'
+                document.getElementById('result1').style.color = 'red'
+            }
+        }
+    </script>
+</body>
+
+</html>
